@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <form action="#" method="GET" class="pop-up-form">
-        <h2>NEWSLETTER  <i class="fa fa-times" aria-hidden="true" style="padding: 5px;"></i></h2>
+    <form action="#" method="GET" class="pop-up-form" style="display: none;">
+        <h2>NEWSLETTER  <i class="fa fa-times" aria-hidden="true" style="padding: 5px;" onclick = "close()"></i></h2>
         <P>Join our mailing list to receive updates on new arrivals and special offers.</P>
         <label for="email">
             <input type="email" name="email" required placeholder="Enter e-mail">
@@ -27,9 +27,9 @@
                     -->
                 <li>Shirts</li>
                 <li>Dresses</li>
-                <li>Jeans <i class="fa fa-caret-right" aria-hidden="true"></i></li>
-                <ul class="list-of-jeans">
-                    <li><i class="fa fa-caret-right" aria-hidden="true"></i> Skinny</li>
+                <li class='jeans'onclick="listOfJeans()">Jeans <i class="fa fa-caret-down" aria-hidden="true" id="icon"></i></li>
+                <ul id="list-of-jeans" style="padding-left: 15px;">
+                    <li ><i class="fa fa-caret-right" aria-hidden="true"></i> Skinny</li>
                     <li>Relaxed</li>
                     <li>Bootcut</li>
                     <li>Straight</li>
@@ -41,7 +41,7 @@
             </ul>
             <ul style="padding-top: 50px">
                 <li>Contact</li>
-                <li>NewSletter</li>
+                <li class="newsletter" onclick='popUp()'>Newsletter</li>
                 <li>Subscribe</li>
             </ul>
         </nav>
@@ -172,8 +172,47 @@
             </footer>
         </div>
     </div>
-</body>
     <script>
-        //document.getElementsByTagName("body")[0].style.width = window.innerWidth + 'px';
+        let listOfJeans= ()=>{
+            if(document.getElementById("list-of-jeans").style.display == 'none'){
+                document.getElementById("list-of-jeans").style.display = 'block';
+                document.getElementById("icon").classList.remove('fa-caret-right');
+                document.getElementById("icon").classList.add('fa-caret-down');
+                //document.getElementsByClassName('jeans')[0].style.hover
+                
+            }
+            else{
+                document.getElementById("list-of-jeans").style.display = 'none';
+                document.getElementById("icon").classList.remove('fa-caret-down');
+                document.getElementById("icon").classList.add('fa-caret-right');
+            }
+        }
+        let popUp = ()=>{
+            if(document.getElementsByClassName("pop-up-form")[0].style.display == 'none'){
+                //callback(true);
+                document.getElementsByClassName("pop-up-form")[0].style.display = 'block';
+                
+            }
+            else{
+                document.getElementsByClassName("pop-up-form")[0].style.display = 'none';
+                //document.getElementsByClassName("pop-up-form")[0].style.cssText += 'transform: scale(0.1)';
+                //callback(false);
+                
+            }
+            
+        }
+        let close = ()=>{
+            console.log('close');
+            
+        }
+        function callback(bool){
+            if(bool)
+                document.getElementsByClassName("pop-up-form")[0].style.cssText += 'transform: scale(1)';
+            else
+                document.getElementsByClassName("pop-up-form")[0].style.display = 'none';
+        }
+        
     </script>
+</body>
+    
 </html>
