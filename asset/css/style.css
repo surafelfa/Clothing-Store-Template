@@ -1,0 +1,336 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+    text-decoration: none;
+    font-family: sans-serif;
+    list-style-type: none;
+    
+}
+:root{
+    --primary-color: black;
+    --secondary-color: white;
+    --bg-black-700: #555555;
+    --bg-black-600: #666666;
+    --bg-black-300: #bbbbbb;
+    --bg-black-100: #dddddd;
+    --bg-black-50: #eff0f4;
+}
+body{
+    margin: auto;
+    overflow-x: hidden;
+}
+.dark-theme{
+    --primary-color: white;
+    --secondary-color: black;
+}
+.preloader{
+    background: var(--primary-color) url(../images/preloader.gif) no-repeat center center;
+    background-size: 15%;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 10000;
+}
+.modal{
+    height: 100vh;
+    background-color: transparent;
+    top: 0;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    transition: all .3s;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 100;
+}
+.modal-form{
+    background-color: var(--bg-black-50);
+    color: var(--primary-color);
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    transform: translate(-50% -50%);
+    text-align: center;
+    padding: 10px 50px;
+    width: 50%;
+    transition: all .3s;
+    transform: scale(.5) translateY(10%);
+    
+}
+.show-modal{
+    visibility: visible;
+    opacity: 1;
+}
+.show-modal .modal-form{
+    transform: scale(1) translateY(0);
+}
+.modal-form span{
+    padding: 20px;
+    display: block;
+    position: relative;
+}
+.modal-form span h2{
+    display: inline-block;
+    padding: 5px 25px;
+    letter-spacing: 0.2em;
+}
+.modal-form span i{
+    display: inline-block;
+    padding: 5px 10px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.modal-form span i:hover,
+.modal-form input[type="submit"]:hover,
+.image-2 a:hover,
+.image-7 a:hover{
+    cursor: pointer;
+    background-color: var(--bg-black-300);
+    color: var(--primary-color);
+}
+.modal-form input[type="email"]{
+    width: 90%;
+    padding: 5px 10px;
+    margin: 15px 0;
+}
+.modal-form input[type="submit"]{
+    background-color: red;
+    color: white;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border: none;
+}
+.fa-times:hover{
+    cursor: pointer;
+    background-color: lightgray;
+}
+nav{
+    overflow: auto;
+    padding: 0 140px;
+    position: fixed;
+    height: 100vh;
+    background-color: white;
+}
+nav h2{
+    padding-bottom: 80px;
+    padding-top: 30px;
+    letter-spacing: .2em;
+}
+nav li{
+    margin-bottom: 15px;
+    padding: 5px;
+}
+nav li:hover{
+    background-color: darkgrey;
+    cursor: pointer;
+}
+nav ul .jeans{
+    font-weight: bold;
+}
+nav ul ul li:first-child{
+    background-color: var(--bg-black-100);
+}
+div.right-side{
+    margin-left: 400px;
+    padding-right: 10%;
+}
+header{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+}
+header h2,
+.header-left-side{
+    display: inline-block;
+    padding: 10px 0;
+}
+.header-left-side i{
+    padding: 15px 10px 0 10px;
+}
+div.main-image{
+    background: url('../images/jeans.jpg') no-repeat;
+    background-size: 100% 100%;
+    height: 600px;
+}
+div.main-image>div{
+    color: white;
+    padding: 30px 0 0 25px;
+}
+div.main-image>div input{
+    font-size: 1.2em;
+    padding: 15px 25px;
+    background-color: black;
+    text-transform: uppercase;
+    color: white;
+    border: none;
+}
+div.clothing{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto;
+    grid-gap: 3%;
+}
+.clothing img{
+    width: 97%;  
+}
+.image-2,
+.image-7{
+    position: relative;
+}
+.image-2 h4,
+.image-7 h4{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+}
+.image-2:hover a,
+.image-7:hover a{
+    visibility: visible;
+}
+.image-2 a,
+.image-7 a{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    color: white;
+    background-color: black;
+    padding: 10px;
+    visibility: hidden;
+    transition: all .3s linear;
+}
+.image-2 a i,
+.image-7 a i{
+    animation: spin 2s linear infinite;
+}
+@keyframes spin{
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+.subscription-form{
+    color: white;
+    background-color: black;
+    padding: 40px 10px;
+    margin-top: 20px;
+}
+.subscription-form input:required, .pop-up-form input:required{
+    margin: 10px 0;
+    padding: 10px 0;
+    width: 100%;
+}
+.subscription-form input:optional, .pop-up-form input:optional{
+    background-color: red;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+}
+.information{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: var(--bg-black-100);
+    padding: 80px 10px;
+}
+.contact-form input{
+    width: 100%;
+    margin: 5px 0;
+    padding: 8px 5px;
+}
+.information>ul li{
+    padding: 7px 0;
+    font-size: 0.8em;
+}
+.information>ul li a{
+    text-decoration: underline;
+    color: black;
+}
+.information input:optional{
+    color: white;
+    background-color: black;
+    border: none;
+}
+footer{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 25px 0;
+}
+input:optional:hover, .modal-form input:optional:hover{
+    color: black;
+    background-color: lightgray;
+    cursor: pointer;
+}
+.nav-bar{ 
+    display: none;
+}
+.nav-bar i,
+.nav-bar h2{
+    display: inline-block;
+    padding: 15px;
+    letter-spacing: 1.1rem;
+}
+.nav-bar i:hover{
+    background-color: var(--bg-black-300);
+}
+@media only screen and (max-width: 900px){
+    .nav-bar{
+        display: block;
+        background-color: black;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 5px;
+    }
+    div.right-side{
+        margin: 0;
+        padding: 0;
+        padding: 0 25px;
+    }
+    div.clothing{
+        display: grid;
+        grid-template-columns: auto auto ;
+        grid-template-rows: auto auto auto auto;
+    }
+    nav{
+        padding: 0 40px;
+        display: none;
+    }
+    .subscription-form{
+        margin-top: 200px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
