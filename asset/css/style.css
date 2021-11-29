@@ -17,9 +17,8 @@
     --bg-black-100: #dddddd;
     --bg-black-50: #eff0f4;
 }
-body{
+html{
     margin: auto;
-    overflow-x: hidden;
 }
 .dark-theme{
     --primary-color: white;
@@ -31,11 +30,13 @@ body{
     height: 100vh;
     width: 100%;
     position: fixed;
+    top: 0;
+    left: 0;
     z-index: 10000;
 }
 .modal{
     height: 100vh;
-    background-color: transparent;
+    background-color: rgba(0, 0, 0, .7);
     top: 0;
     left: 0;
     position: fixed;
@@ -43,20 +44,19 @@ body{
     transition: all .3s;
     visibility: hidden;
     opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 100;
 }
 .modal-form{
     background-color: var(--bg-black-50);
     color: var(--primary-color);
     position: absolute;
-    top: 15%;
-    left: 25%;
-    transform: translate(-50% -50%);
     text-align: center;
     padding: 10px 50px;
-    width: 50%;
     transition: all .3s;
-    transform: scale(.5) translateY(10%);
+    transform: scale(.5);
     
 }
 .show-modal{
@@ -64,7 +64,7 @@ body{
     opacity: 1;
 }
 .show-modal .modal-form{
-    transform: scale(1) translateY(0);
+    transform: scale(1) translateY(-50%);
 }
 .modal-form span{
     padding: 20px;
@@ -277,7 +277,10 @@ input:optional:hover, .modal-form input:optional:hover{
 .nav-bar h2{
     display: inline-block;
     padding: 15px;
-    letter-spacing: 1.1rem;
+    line-height: 15px;
+}
+.nav-bar h2{
+    letter-spacing: 1.5rem;
 }
 .nav-bar i:hover{
     background-color: var(--bg-black-300);
@@ -294,15 +297,14 @@ input:optional:hover, .modal-form input:optional:hover{
     div.right-side{
         margin: 0;
         padding: 0;
-        padding: 0 25px;
     }
     div.clothing{
-        display: grid;
         grid-template-columns: auto auto ;
         grid-template-rows: auto auto auto auto;
     }
     nav{
         padding: 0 40px;
+        z-index: 50;
         display: none;
     }
     .subscription-form{

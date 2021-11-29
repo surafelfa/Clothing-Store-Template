@@ -1,4 +1,6 @@
-document.querySelector("body").style.width = window.innerWidth + "px";
+document.querySelector("html").style.width = screen.availWidth + "px";
+let modalFormWidth = (screen.availWidth)* (3/5);
+document.querySelector(".modal-form").style.width =  modalFormWidth + "px";
 window.addEventListener("load", function(){
     setTimeout( function (){
         document.querySelector(".preloader").style.display = "none";
@@ -25,48 +27,8 @@ document.querySelector(".jeans").addEventListener("click", function(){
     }
 })
 document.querySelector(".nav-bar i").addEventListener("click", function(){
-    if(document.querySelector("nav").style.display == "block")
-        document.querySelector("nav").style.display = "none";
+    if(document.querySelector("nav").style.display == "none")   
+        document.querySelector("nav").style.display = "block";
     else
-        document.querySelector("nav").style.display = "block"
+    document.querySelector("nav").style.display = "none";
 })
-/*
-
-
-let colorTheme = document.getElementById("colorTheme");
-colorTheme.addEventListener("click", function(){
-    document.body.classList.toggle("dark-theme");
-    if(document.body.classList.contains("dark-theme")){
-        colorTheme.src = "../images/sun/png";
-    }
-    else{
-        colorTheme.src = "../images/moon.png";
-    }
-})
-let listOfJeans= ()=>{
-    
-}
-let popUp = ()=>{
-    if(document.getElementsByClassName("pop-up-form")[0].style.display == 'none'){
-        //callback(true);
-        document.getElementsByClassName("pop-up-form")[0].style.display = 'block';
-        
-    }
-    else{
-        document.getElementsByClassName("pop-up-form")[0].style.display = 'none';
-        //document.getElementsByClassName("pop-up-form")[0].style.cssText += 'transform: scale(0.1)';
-        //callback(false);
-        
-    }
-    
-}
-let close = ()=>{
-    console.log('close');
-    
-}
-function callback(bool){
-    if(bool)
-        document.getElementsByClassName("pop-up-form")[0].style.cssText += 'transform: scale(1)';
-    else
-        document.getElementsByClassName("pop-up-form")[0].style.display = 'none';
-}*/
